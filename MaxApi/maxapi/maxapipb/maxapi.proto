@@ -1,0 +1,14 @@
+syntax = "proto3";
+package maxapipb;
+option go_package = "/maxapipb";
+
+message MaxApiRequest {
+    int64 number = 1;
+}
+message MaxApiResponse {
+    int64 maxNumber = 1;
+}
+
+service GetMaxApi {
+    rpc MaxApi (stream MaxApiRequest) returns (stream MaxApiResponse){};
+}
